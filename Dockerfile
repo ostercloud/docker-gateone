@@ -4,8 +4,8 @@ MAINTAINER Hans Donner <hans.donner@pobox.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 # everything up to date
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list && \
-    apt-get update && \
+#RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list && \
+RUN apt-get update && \
     apt-get upgrade -y
 
 RUN apt-get install -y git python python-pip
