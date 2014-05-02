@@ -1,24 +1,20 @@
-FROM ubuntu:12.04
+FROM hansd/base-14.04
 MAINTAINER Hans Donner <hans.donner@pobox.com>
 
-ENV DEBIAN_FRONTEND noninteractive
+# install required packages
+# - for tornado: gcc build-essential python-dev
+#
+RUN apt-get install -y \
+       git python python-pip \
+       gcc build-essential python-dev ;\
+    pip install tornado ;\
+    pip install html5lib
 
-# everything up to date
-#RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list && \
-RUN apt-get update && \
-    apt-get upgrade -y
 
-RUN apt-get install -y git python python-pip
-
-RUN apt-get install -y gcc build-essential python-dev && \
-    pip install tornado 
-#pyopenssl
-
-RUN pip install html5lib
-
-RUN git clone https://github.com/liftoff/GateOne.git gateone && \
-    cd gateone && \
-    python setup.py install
+# get latest source from github and install
+#
+RUN git clone https://github.com/liftoff/GateOne.git gateone; \
+    cd gateone; python setup.py install
 
 VOLUME /etc/gateone
 
