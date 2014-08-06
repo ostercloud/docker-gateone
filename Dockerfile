@@ -6,9 +6,10 @@ MAINTAINER Hans Donner <hans.donner@pobox.com>
 #
 RUN apt-get install -y \
        git python python-pip \
-       gcc build-essential python-dev ;\
-    pip install tornado ;\
-    pip install html5lib
+       gcc build-essential python-dev \
+       python-tornado \
+       python-kerberos \
+       python-html5lib ;\
 
 
 # get latest source from github and install
