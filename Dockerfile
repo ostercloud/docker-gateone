@@ -16,8 +16,9 @@ RUN apt-get install -y \
 RUN git clone https://github.com/liftoff/GateOne.git gateone; \
     cd gateone; python setup.py install
 
+RUN useradd student -p ch@nGeme!
 VOLUME /etc/gateone
 
 EXPOSE 443
 
-CMD gateone
+CMD gateone --auth=pam
