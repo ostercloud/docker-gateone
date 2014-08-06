@@ -4,12 +4,13 @@ MAINTAINER Hans Donner <hans.donner@pobox.com>
 # install required packages
 # - for tornado: gcc build-essential python-dev
 #
+RUN apt-get update
 RUN apt-get install -y \
        git python python-pip \
        gcc build-essential python-dev \
        python-tornado \
        python-kerberos \
-       python-html5lib ;\
+       python-html5lib
 
 
 # get latest source from github and install
